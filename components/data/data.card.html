@@ -1,0 +1,55 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Data" subtitle="表格两种密度与分页" -->
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:20px;background:var(--surface-page)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.lbl{font-size:11px;color:var(--text-muted);width:100%;margin-bottom:-4px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const NS = (function(){
+  const keys = ['Button','StatusBadge','Amount','DataTable','Drawer','QueueToolbar'];
+  for (const k of Object.keys(window)) {
+    const v = window[k];
+    if (v && typeof v === 'object' && keys.some(n => typeof v[n] === 'function')) return v;
+  }
+  return {};
+})();
+
+const { DataTable, Pagination, Card, StatusBadge, Amount } = NS;
+const cols = [
+  { key:'date', label:'日期', width:'92px' },
+  { key:'payee', label:'收款人' },
+  { key:'amount', label:'金额', width:'150px', align:'right' },
+  { key:'status', label:'状态', width:'120px' },
+];
+const rows = [
+  { key:'a', date:'9月6日', payee:'Acme GmbH', amount:<Amount value="5,000.00" currency="EUR" direction="out" />, status:<StatusBadge tone="warning">等待审批</StatusBadge> },
+  { key:'b', date:'9月6日', payee:'链上充值 · Ethereum', amount:<Amount value="5,000.00" currency="USDT" direction="in" />, status:<StatusBadge tone="neutral" progress="7 / 12">确认中</StatusBadge> },
+  { key:'c', date:'9月3日', payee:'Nova Trading Ltd', amount:<Amount value="18,284.00" currency="EUR" direction="out" />, status:<StatusBadge tone="positive">已付款</StatusBadge> },
+];
+function Demo() {
+  const [sel, setSel] = React.useState('b');
+  const [d, setD] = React.useState('comfortable');
+  return (
+    <div style={{display:'grid',gap:12}}>
+      <div className="row" style={{marginBottom:0}}>
+        <span style={{fontSize:11,color:'var(--text-muted)'}}>密度</span>
+        {['comfortable','compact'].map(x => (
+          <span key={x} onClick={()=>setD(x)} style={{fontSize:12,cursor:'pointer',padding:'2px 8px',borderRadius:4,
+            background: d===x?'var(--color-primary-soft)':'transparent', color: d===x?'var(--color-primary)':'var(--text-secondary)'}}>{x}</span>
+        ))}
+      </div>
+      <Card pad={false}>
+        <DataTable columns={cols} rows={rows} density={d} selectedKey={sel} onRowClick={setSel} />
+        <Pagination page={1} pages={12} pageSize={3} total={34} unit="笔" />
+      </Card>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

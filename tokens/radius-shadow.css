@@ -1,0 +1,18 @@
+:root {
+  /* Only three radii */
+  --radius-sm: 4px;   /* inputs, buttons, badges */
+  --radius-md: 8px;   /* cards, panels inside drawers */
+  --radius-lg: 12px;  /* modals, mobile bottom sheets */
+  --radius-full: 999px;
+
+  /* Cards have NO shadow. Shadow belongs to overlays only. */
+  --shadow-none: none;
+  --shadow-popover: 0 4px 12px rgba(20, 33, 61, 0.10), 0 1px 3px rgba(20, 33, 61, 0.06);
+  --shadow-modal: 0 12px 32px rgba(20, 33, 61, 0.16), 0 2px 8px rgba(20, 33, 61, 0.08);
+  --scrim: rgba(20, 33, 61, 0.18);
+
+  --border-width: 1px;
+  --duration-fast: 120ms;
+  --duration-base: 150ms;
+  --easing: cubic-bezier(0.2, 0, 0.2, 1);
+}

@@ -1,0 +1,55 @@
+:root {
+  /* Base ink — cool, slightly blue greys */
+  --color-ink: #14213D;
+  --color-ink-2: #4A5875;
+  --color-ink-3: #8A94AB;
+  --color-paper: #F5F6FA;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #EEF0F5;
+  --color-surface-hover: #F8F9FC;
+  --color-line: #E1E5EE;
+  --color-line-2: #C5CCDB;
+
+  /* Primary — only for things that can be clicked */
+  --color-primary: #2554E6;
+  --color-primary-hover: #1C45C4;
+  --color-primary-soft: #E8EEFD;
+  --color-primary-tint: #F8FAFF;
+
+  /* Semantic — state only, never decoration */
+  --color-positive: #12805C;
+  --color-positive-soft: #E3F3EC;
+  --color-warning: #B7791F;
+  --color-warning-soft: #FBF1DC;
+  --color-warning-line: #EFD9AC;
+  --color-warning-tint: #FBF8EF;
+  --color-negative: #C4322D;
+  --color-negative-hover: #A82823;
+  --color-negative-soft: #FBE6E5;
+  --color-state-neutral: #5B6B8C;
+
+  /* Risk scale (KYB / payout review) */
+  --color-risk-high: var(--color-negative);
+  --color-risk-high-soft: var(--color-negative-soft);
+  --color-risk-mid: var(--color-warning);
+  --color-risk-mid-soft: var(--color-warning-soft);
+  --color-risk-low: var(--color-state-neutral);
+  --color-risk-low-soft: var(--color-surface-2);
+
+  /* Inverted (toast) */
+  --color-inverse-surface: #14213D;
+  --color-inverse-text: #FFFFFF;
+  --color-inverse-accent: #7FD4B4;
+
+  /* Semantic aliases */
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-ink-2);
+  --text-muted: var(--color-ink-3);
+  --text-link: var(--color-primary);
+  --surface-page: var(--color-paper);
+  --surface-card: var(--color-surface);
+  --surface-sunken: var(--color-surface-2);
+  --border-default: var(--color-line);
+  --border-strong: var(--color-line-2);
+  --focus-ring: 0 0 0 3px var(--color-primary-soft);
+}

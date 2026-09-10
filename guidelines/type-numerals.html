@@ -1,0 +1,14 @@
+<!-- @dsCard group="Type" viewport="700x200" subtitle="所有数字 tabular，金额字重 500" name="Type Numerals" -->
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{padding:18px;background:var(--surface-page)}
+.sw{display:flex;flex-wrap:wrap;gap:10px}
+.s{width:96px}
+.chip{height:44px;border-radius:var(--radius-sm);border:1px solid var(--border-default)}
+.n{font-size:11px;margin-top:5px;color:var(--text-primary)}
+.h{font-size:10px;color:var(--text-muted);font-family:var(--font-mono)}
+.lbl{font-size:11px;color:var(--text-muted);margin-bottom:8px}
+</style></head><body><div style="display:grid;gap:10px">
+  <div><div class="lbl">tabular-nums · 金额纵向对齐</div>
+  <div style="font-variant-numeric:tabular-nums;font-weight:500;font-size:16px;line-height:22px">19,969.87<br>1,234.05<br>888,000.00</div></div>
+  <div><div class="lbl">对照：比例数字（禁止用于金额）</div>
+  <div style="font-variant-numeric:normal;font-size:16px;line-height:22px;color:var(--text-muted)">19,969.87<br>1,234.05<br>888,000.00</div></div></div></body></html>

@@ -1,0 +1,4 @@
+/* Webfonts. IBM Plex Sans/Mono + Noto Sans SC, served from Google Fonts.
+   No binaries were provided with the source; if you have licensed files,
+   drop them in assets/fonts/ and replace this import with local @font-face rules. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap");

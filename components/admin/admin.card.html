@@ -1,0 +1,47 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Admin" subtitle="队列头、四眼原则、审计记录" -->
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:20px;background:var(--surface-page)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.lbl{font-size:11px;color:var(--text-muted);width:100%;margin-bottom:-4px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const NS = (function(){
+  const keys = ['Button','StatusBadge','Amount','DataTable','Drawer','QueueToolbar'];
+  for (const k of Object.keys(window)) {
+    const v = window[k];
+    if (v && typeof v === 'object' && keys.some(n => typeof v[n] === 'function')) return v;
+  }
+  return {};
+})();
+
+const { QueueToolbar, FourEyesBanner, AuditTrail, Card, Button } = NS;
+function Demo() {
+  const [tab, setTab] = React.useState('我的案件');
+  return (
+    <div style={{display:'grid',gap:16}}>
+      <Card pad={false}>
+        <QueueToolbar title="出金复核" count={4} tabs={['我的案件','未认领','全部']} value={tab} onChange={setTab}
+          shortcuts={[{key:'J',label:'下一条'},{key:'A',label:'放行'},{key:'Esc',label:'关闭'}]} />
+        <div style={{padding:'14px 16px',fontSize:13,color:'var(--text-secondary)'}}>队列表格接在下方（见 Data 卡片）。</div>
+      </Card>
+      <FourEyesBanner title="等待第二审批人。"
+        detail="汇率覆盖已提交，等待 MLRO 复核 · 发起人 Ops Chen · 理由：流动性对冲"
+        action={<Button size="sm" variant="ghost">撤回</Button>} />
+      <Card title="Audit trail">
+        <AuditTrail note="每个对象详情底部固定一段：谁、何时、做了什么、改了什么（前值 → 后值）。" entries={[
+          {time:'09-06 15:02', actor:'Amy Ho', what:'勾选检查项“UBO 穿透至自然人”'},
+          {time:'09-06 14:47', actor:'Amy Ho', what:'标记筛查命中为误报 · World-Check #4471'},
+          {time:'09-06 14:31', actor:'系统', what:'风险评分 58 → 72（新增高风险国家收款人）'},
+        ]} />
+      </Card>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

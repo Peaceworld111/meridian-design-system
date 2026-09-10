@@ -1,0 +1,58 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Status" subtitle="状态、风险、时间线、审批链、提醒" -->
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:20px;background:var(--surface-page)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.lbl{font-size:11px;color:var(--text-muted);width:100%;margin-bottom:-4px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const NS = (function(){
+  const keys = ['Button','StatusBadge','Amount','DataTable','Drawer','QueueToolbar'];
+  for (const k of Object.keys(window)) {
+    const v = window[k];
+    if (v && typeof v === 'object' && keys.some(n => typeof v[n] === 'function')) return v;
+  }
+  return {};
+})();
+
+const { StatusBadge, RiskBadge, Timeline, ApprovalChain, RiskHint } = NS;
+function Demo() {
+  return (
+    <div>
+      <div className="row"><span className="lbl">StatusBadge · 四种语气</span>
+        <StatusBadge tone="neutral" progress="7 / 12">确认中</StatusBadge>
+        <StatusBadge tone="warning">等待审批</StatusBadge>
+        <StatusBadge tone="positive">已入账</StatusBadge>
+        <StatusBadge tone="negative">付款失败</StatusBadge>
+      </div>
+      <div className="row"><span className="lbl">RiskBadge</span>
+        <RiskBadge level="高" /><RiskBadge level="中" /><RiskBadge level="低" />
+      </div>
+      <div className="row" style={{alignItems:'flex-start'}}>
+        <span className="lbl">Timeline / ApprovalChain / RiskHint</span>
+        <div style={{width:250}}>
+          <Timeline steps={[
+            {state:'done', label:'已提交', sub:'今天 14:32 · Linda Wong'},
+            {state:'current', label:'等待审批', sub:'Chan Wai 已收到通知'},
+            {state:'future', label:'预计到账', sub:'9月8日前'},
+          ]} />
+        </div>
+        <div style={{flex:1,minWidth:280,display:'grid',gap:16}}>
+          <ApprovalChain steps={[
+            {state:'done', name:'Linda Wong', sub:'发起 · 14:32'},
+            {state:'current', name:'Chan Wai', sub:'等待审批'},
+            {state:'future', name:'平台审核', sub:'通常 1 小时内'},
+          ]} />
+          <RiskHint items={['这是你第一次向 Acme GmbH 付款。','收款人已生效 12 天。']} />
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

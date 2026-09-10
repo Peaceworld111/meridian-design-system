@@ -1,0 +1,32 @@
+<!-- @dsCard group="Admin" viewport="1180x700" subtitle="后台：出金复核队列 + 复核抽屉（可点击）" name="后台 Admin" -->
+<!-- @startingPoint section="Screens" subtitle="后台主框架 + 出金复核队列" viewport="1180x700" -->
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>Meridian · 后台</title>
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const NS = (function(){
+  for (const k of Object.keys(window)) {
+    const v = window[k];
+    if (v && typeof v === 'object' && typeof v.AdminShell === 'function' && typeof v.PayoutReviewScreen === 'function') return v;
+  }
+  return {};
+})();
+const { AdminShell, PayoutReviewScreen, Card, EmptyState } = NS;
+
+function App() {
+  const [view, setView] = React.useState('payout');
+  return (
+    <AdminShell view={view} onNavigate={setView}>
+      {view === 'payout'
+        ? <PayoutReviewScreen />
+        : <Card><EmptyState title={view + " · 本 kit 未收录"} body="该模块存在于原型中，本 kit 只演示出金复核这条队列作业路径。" /></Card>}
+    </AdminShell>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script></body></html>

@@ -1,0 +1,15 @@
+<!-- @dsCard group="Brand" viewport="700x190" subtitle="交互状态：hover / 选中 / focus / 禁用" name="States" -->
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{padding:18px;background:var(--surface-page)}
+.sw{display:flex;flex-wrap:wrap;gap:10px}
+.s{width:96px}
+.chip{height:44px;border-radius:var(--radius-sm);border:1px solid var(--border-default)}
+.n{font-size:11px;margin-top:5px;color:var(--text-primary)}
+.h{font-size:10px;color:var(--text-muted);font-family:var(--font-mono)}
+.lbl{font-size:11px;color:var(--text-muted);margin-bottom:8px}
+</style></head><body><div style="display:grid;gap:10px;font-size:13px">
+   <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><span class="h" style="width:76px">行 hover</span><span style="padding:6px 12px;background:var(--color-surface-hover);border:1px solid var(--border-default);border-radius:4px">#F8F9FC</span>
+   <span class="h" style="width:60px">行选中</span><span style="padding:6px 12px;background:var(--color-primary-soft);border:1px solid var(--border-default);border-radius:4px">#E8EEFD</span></div>
+   <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><span class="h" style="width:76px">focus</span><span style="padding:6px 12px;border:1px solid var(--color-primary);border-radius:4px;box-shadow:var(--focus-ring)">3px 光环</span>
+   <span class="h" style="width:60px">禁用</span><span style="padding:6px 12px;background:var(--color-surface-2);color:var(--text-muted);border-radius:4px">不可点</span></div>
+   <div style="font-size:12px;color:var(--text-secondary)">过渡 120–150ms，只做颜色与位移；没有弹跳、没有缩放、没有淡入淡出的页面转场。</div></div></body></html>

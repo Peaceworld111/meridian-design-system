@@ -1,0 +1,14 @@
+<!-- @dsCard group="Brand" viewport="700x200" subtitle="卡片没有阴影；阴影只属于浮层" name="Elevation" -->
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{padding:18px;background:var(--surface-page)}
+.sw{display:flex;flex-wrap:wrap;gap:10px}
+.s{width:96px}
+.chip{height:44px;border-radius:var(--radius-sm);border:1px solid var(--border-default)}
+.n{font-size:11px;margin-top:5px;color:var(--text-primary)}
+.h{font-size:10px;color:var(--text-muted);font-family:var(--font-mono)}
+.lbl{font-size:11px;color:var(--text-muted);margin-bottom:8px}
+</style></head><body><div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+   <div style="width:180px"><div style="height:56px;background:var(--color-surface);border:1px solid var(--border-default);border-radius:var(--radius-md)"></div><div class="n">Card</div><div class="h">border only · no shadow</div></div>
+   <div style="width:180px"><div style="height:56px;background:var(--color-surface);border:1px solid var(--border-default);border-radius:var(--radius-md);box-shadow:var(--shadow-popover)"></div><div class="n">Popover / 下拉</div><div class="h">--shadow-popover</div></div>
+   <div style="width:180px"><div style="height:56px;background:var(--color-surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-modal)"></div><div class="n">Modal / Drawer</div><div class="h">--shadow-modal</div></div>
+   <div style="width:110px"><div style="height:56px;background:var(--scrim);border-radius:var(--radius-md)"></div><div class="n">Scrim</div><div class="h">rgba(20,33,61,.18)</div></div></div></body></html>

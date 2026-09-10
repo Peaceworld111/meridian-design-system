@@ -1,0 +1,62 @@
+<!-- @dsCard group="Components" viewport="700x330" name="Feedback" subtitle="抽屉、弹窗、Toast、错误、骨架、空态" -->
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:20px;background:var(--surface-page)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.lbl{font-size:11px;color:var(--text-muted);width:100%;margin-bottom:-4px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const NS = (function(){
+  const keys = ['Button','StatusBadge','Amount','DataTable','Drawer','QueueToolbar'];
+  for (const k of Object.keys(window)) {
+    const v = window[k];
+    if (v && typeof v === 'object' && keys.some(n => typeof v[n] === 'function')) return v;
+  }
+  return {};
+})();
+
+const { Drawer, Modal, Toast, ErrorBlock, Skeleton, EmptyState, Button, Card, StatusBadge } = NS;
+function Demo() {
+  const [d, setD] = React.useState(false);
+  const [m, setM] = React.useState(false);
+  return (
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16,alignItems:'start'}}>
+      <div style={{display:'grid',gap:12}}>
+        <div className="row" style={{marginBottom:0}}>
+          <Button variant="secondary" onClick={()=>setD(true)}>打开抽屉</Button>
+          <Button variant="danger" onClick={()=>setM(true)}>删除收款人</Button>
+        </div>
+        <Toast>已放行 PMT-20260906-0031 · 5,000.00 EUR，队列剩 3 笔</Toast>
+        <ErrorBlock what="付款失败" why="收款账号无效 · 5,003.00 EUR 已退回可用余额，手续费已退还。"
+          action={<Button size="sm" variant="secondary">修改收款人后重试</Button>} />
+      </div>
+      <div style={{display:'grid',gap:12}}>
+        <Card pad={false}>
+          <div style={{padding:'12px 16px',display:'grid',gap:8}}>
+            <span className="lbl">Skeleton · 保留列宽与金额字号</span>
+            <div style={{display:'flex',justifyContent:'space-between'}}><Skeleton w={110} /><Skeleton w={90} h={16} /></div>
+            <div style={{display:'flex',justifyContent:'space-between'}}><Skeleton w={140} /><Skeleton w={90} h={16} /></div>
+          </div>
+        </Card>
+        <Card pad={false}>
+          <EmptyState title="还没有收款人" body="添加收款人后即可发起付款。" action={<Button size="sm">新建收款人</Button>} />
+        </Card>
+      </div>
+      <Drawer open={d} onClose={()=>setD(false)} title="PMT-20260906-0031"
+        badge={<StatusBadge tone="warning">等待审批</StatusBadge>}
+        footer={<><Button variant="danger" size="sm">拒绝</Button><Button size="sm">批准 5,000.00 EUR</Button></>}>
+        <div style={{fontSize:13,color:'var(--text-secondary)'}}>抽屉默认关闭，点击行才打开；Esc 或遮罩关闭。</div>
+      </Drawer>
+      <Modal open={m} onClose={()=>setM(false)} danger title="删除收款人 Acme GmbH？"
+        body="正在处理中的 1 笔付款不受影响。删除后需重新添加并等待 24 小时冷却才能付款。"
+        confirmLabel="删除收款人" onConfirm={()=>setM(false)} />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

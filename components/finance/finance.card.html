@@ -1,0 +1,73 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Finance" subtitle="金额、币种选择、报价卡、标识、摘要" -->
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:20px;background:var(--surface-page)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.lbl{font-size:11px;color:var(--text-muted);width:100%;margin-bottom:-4px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const NS = (function(){
+  const keys = ['Button','StatusBadge','Amount','DataTable','Drawer','QueueToolbar'];
+  for (const k of Object.keys(window)) {
+    const v = window[k];
+    if (v && typeof v === 'object' && keys.some(n => typeof v[n] === 'function')) return v;
+  }
+  return {};
+})();
+
+const { Amount, AmountInput, CurrencyPicker, QuoteCard, Identifier, ReviewSummary } = NS;
+const CCY = [
+  { code:'USDT', name:'Tether', kind:'token', avail:'0.00' },
+  { code:'USDC', name:'USD Coin', kind:'token', avail:'0.00' },
+  { code:'EUR', name:'欧元', kind:'fiat', avail:'13,281.00' },
+  { code:'USD', name:'美元', kind:'fiat', avail:'0.00' },
+];
+function Demo() {
+  const [amt, setAmt] = React.useState('20,000.00');
+  const [ccy, setCcy] = React.useState('EUR');
+  const [sec, setSec] = React.useState(30);
+  React.useEffect(() => { const i = setInterval(() => setSec(s => Math.max(0, s-1)), 1000); return () => clearInterval(i); }, []);
+  return (
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16,alignItems:'start'}}>
+      <div>
+        <div className="row" style={{display:'grid',gap:6}}>
+          <span className="lbl">Amount · hero / confirm / detail / table</span>
+          <Amount size="hero" value="19,969.87" currency="USD" />
+          <Amount size="confirm" value="5,000.00" currency="EUR" direction="out" />
+          <Amount size="detail" value="20,000.00" currency="USDT" direction="in" approx="19,970.00 USD" />
+          <Amount value="1,234,567.89" currency="EUR" direction="out" />
+        </div>
+        <div className="row" style={{display:'grid',gap:6}}>
+          <span className="lbl">AmountInput + CurrencyPicker</span>
+          <AmountInput value={amt} onChange={setAmt} avail={'13,281.00 ' + ccy} onMax={()=>setAmt('13,281.00')}
+            invalid error="超出可用余额，请减小金额或先充值"
+            picker={<CurrencyPicker options={CCY} value={ccy} onChange={setCcy} iconBase="../../assets/icons" />} />
+        </div>
+        <div className="row" style={{display:'grid',gap:6}}>
+          <span className="lbl">Identifier</span>
+          <Identifier label="充值地址" network="Ethereum" value="0x3f8a…9c2e" full="0x3f8a2c41b7e6d90f5a8b1c2d3e4f5a6b7c8d9c2e" explorer="#" />
+        </div>
+      </div>
+      <div style={{display:'grid',gap:14}}>
+        <span className="lbl">QuoteCard · 30s 锁价</span>
+        <QuoteCard sell="20,000.00 USDT" buy="18,284.00 EUR" rate="0.9142 EUR / USDT" fee="0.00 EUR"
+          seconds={sec} total={30} onRefresh={()=>setSec(30)} />
+        <span className="lbl">ReviewSummary</span>
+        <ReviewSummary rows={[
+          {label:'对方收', value:'5,000.00 EUR', strong:true},
+          {label:'你付', value:'5,003.00 EUR'},
+          {label:'手续费', value:'3.00 EUR'},
+          {label:'预计到账', value:'9月8日前', divider:true},
+          {label:'审批', value:'需 Chan Wai'},
+        ]} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

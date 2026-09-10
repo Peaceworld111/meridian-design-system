@@ -1,0 +1,14 @@
+:root {
+  --sidebar-portal: 240px;
+  --sidebar-admin: 220px;
+  --topbar-height: 52px;
+  --content-max: 1200px;
+  --content-max-list: 1040px;
+  --content-pad: 24px;
+  --form-max: 640px;
+  --form-max-wide: 760px;
+  --drawer: 480px;
+  --drawer-wide: 720px;
+  --drawer-admin: 640px;
+  --table-min: 600px;
+}

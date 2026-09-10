@@ -1,0 +1,65 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Core" subtitle="按钮、输入、选择、卡片、Tabs" -->
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:20px;background:var(--surface-page)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.lbl{font-size:11px;color:var(--text-muted);width:100%;margin-bottom:-4px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const NS = (function(){
+  const keys = ['Button','StatusBadge','Amount','DataTable','Drawer','QueueToolbar'];
+  for (const k of Object.keys(window)) {
+    const v = window[k];
+    if (v && typeof v === 'object' && keys.some(n => typeof v[n] === 'function')) return v;
+  }
+  return {};
+})();
+
+const { Button, Input, Field, Select, Checkbox, Radio, Toggle, Card, Kbd, Tabs } = NS;
+function Demo() {
+  const [tab, setTab] = React.useState('a');
+  const [on, setOn] = React.useState(true);
+  return (
+    <div>
+      <div className="row"><span className="lbl">Button · variant</span>
+        <Button>确认付款 5,000.00 EUR</Button>
+        <Button variant="secondary">取消</Button>
+        <Button variant="ghost">撤回</Button>
+        <Button variant="danger">拒绝</Button>
+        <Button disabled>提交审核</Button>
+      </div>
+      <div className="row"><span className="lbl">Button · size</span>
+        <Button size="sm">认领</Button><Button size="md">批准</Button><Button size="lg">下一步</Button>
+      </div>
+      <div className="row" style={{alignItems:'flex-start'}}><span className="lbl">Input / Field / Select</span>
+        <Field label="收款人名称" help="必须与银行账户开户名一致" style={{width:230}}>
+          <Input defaultValue="Acme GmbH" />
+        </Field>
+        <Field label="IBAN" style={{width:230}}>
+          <Input mono defaultValue="DE89 3704 0044 0532" invalid />
+        </Field>
+        <Field label="国家" optional style={{width:150}}>
+          <Select options={['德国','香港','新加坡']} />
+        </Field>
+      </div>
+      <div className="row"><span className="lbl">Checkbox / Radio / Toggle / Kbd</span>
+        <Checkbox label="UBO 穿透至自然人" defaultChecked />
+        <Radio label="对方收到" checked onChange={()=>{}} />
+        <Toggle checked={on} onChange={setOn} label="SEPA 通道" />
+        <span style={{fontSize:11,color:'var(--text-muted)'}}><Kbd>J</Kbd> <Kbd>K</Kbd> 移动</span>
+      </div>
+      <div className="row" style={{alignItems:'stretch'}}><span className="lbl">Card / Tabs</span>
+        <Card title="本月统计" action={<a href="#">结单</a>} style={{width:300}}>
+          <Tabs value={tab} onChange={setTab} items={[{value:'a',label:'付款',count:12},{value:'b',label:'兑换'}]} />
+        </Card>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

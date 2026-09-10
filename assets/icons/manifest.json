@@ -1,0 +1,320 @@
+[
+  {
+    "id": "token/usdt",
+    "file": "token/usdt.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/usdt-mono",
+    "file": "token/usdt-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/usdc",
+    "file": "token/usdc.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/usdc-mono",
+    "file": "token/usdc-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/eth",
+    "file": "token/eth.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/eth-mono",
+    "file": "token/eth-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/trx",
+    "file": "token/trx.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/trx-mono",
+    "file": "token/trx-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/sol",
+    "file": "token/sol.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/sol-mono",
+    "file": "token/sol-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/bnb",
+    "file": "token/bnb.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/bnb-mono",
+    "file": "token/bnb-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/btc",
+    "file": "token/btc.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "token/btc-mono",
+    "file": "token/btc-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/tron",
+    "file": "network/tron.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/tron-mono",
+    "file": "network/tron-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/ethereum",
+    "file": "network/ethereum.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/ethereum-mono",
+    "file": "network/ethereum-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/solana",
+    "file": "network/solana.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/solana-mono",
+    "file": "network/solana-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/polygon",
+    "file": "network/polygon.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/polygon-mono",
+    "file": "network/polygon-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/base",
+    "file": "network/base.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/base-mono",
+    "file": "network/base-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/arbitrum",
+    "file": "network/arbitrum.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/arbitrum-mono",
+    "file": "network/arbitrum-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/bsc",
+    "file": "network/bsc.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "network/bsc-mono",
+    "file": "network/bsc-mono.svg",
+    "source": "web3icons",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/usd",
+    "file": "flag/usd.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/eur",
+    "file": "flag/eur.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/gbp",
+    "file": "flag/gbp.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/hkd",
+    "file": "flag/hkd.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/sgd",
+    "file": "flag/sgd.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/jpy",
+    "file": "flag/jpy.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/aud",
+    "file": "flag/aud.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/cad",
+    "file": "flag/cad.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/chf",
+    "file": "flag/chf.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/aed",
+    "file": "flag/aed.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/cny",
+    "file": "flag/cny.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "flag/krw",
+    "file": "flag/krw.svg",
+    "source": "circle-flags",
+    "license": "MIT"
+  },
+  {
+    "id": "brand/visa",
+    "file": "brand/visa.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/mastercard",
+    "file": "brand/mastercard.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/americanexpress",
+    "file": "brand/americanexpress.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/swift",
+    "file": "brand/swift.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/sepa",
+    "file": "brand/sepa.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/stripe",
+    "file": "brand/stripe.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/wise",
+    "file": "brand/wise.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/paypal",
+    "file": "brand/paypal.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/revolut",
+    "file": "brand/revolut.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/coinbase",
+    "file": "brand/coinbase.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/binance",
+    "file": "brand/binance.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/tether",
+    "file": "brand/tether.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  },
+  {
+    "id": "brand/circle",
+    "file": "brand/circle.svg",
+    "source": "simple-icons",
+    "license": "CC0"
+  }
+]
